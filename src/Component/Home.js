@@ -58,6 +58,7 @@ const Home = () => {
           <EditUserForm
             addUser={addUser}
             editing={editing}
+            setEditing={setEditing}
             setCurrentUser={setCurrentUser}
             currentUser={currentUser}
             updateUser={updateUser}

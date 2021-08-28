@@ -13,6 +13,10 @@ const EditUserForm = (props) => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
   };
+  const reset = () => {
+    props.setEditing(false);
+    props.setCurrentUser(initialFormState);
+  };
 
   return (
     <form
@@ -63,9 +67,7 @@ const EditUserForm = (props) => {
           </Button>
         </Grid>
         <Grid item xs>
-          <Button onClick={() => props.setCurrentUser(initialFormState)}>
-            Reset
-          </Button>
+          <Button onClick={reset}>Reset</Button>
         </Grid>
       </Grid>
     </form>

@@ -1,7 +1,7 @@
 {
-  "name": "usercrudapp",
+  "name": "usercrud",
   "version": "0.0.16",
-  "description": null,
+  "description": "",
   "keywords": [],
   "homepage": "https://codesandbox.io/s/4j7m47vlm4",
   "main": "index.js",

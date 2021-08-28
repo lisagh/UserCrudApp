@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import UserTable from "./UserTable";
 import EditUserForm from "./EditUserForm";
-import { Container, Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 2,
+    padding: theme.spacing(2)
+  }
+}));
 const Home = () => {
+  const classes = useStyles();
   const usersData = [
     { id: 1, firstName: "John", lastName: "Jackson" },
     { id: 2, firstName: "Craig", lastName: "Smith" },
@@ -39,11 +47,14 @@ const Home = () => {
   };
 
   return (
-    <Container maxWidth="sm">
-      <h1>Simple CRUD App</h1>
-      <Grid container spacing={3}>
-        <div className="flex-large">
-          <h2>Add user</h2>
+    <div className={classes.root}>
+      <Grid container spacing={1}>
+        <Grid item xs={12}>
+          <Typography gutterBottom variant="h4">
+            Simple CRUD App
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
           <EditUserForm
             addUser={addUser}
             editing={editing}
@@ -51,13 +62,17 @@ const Home = () => {
             currentUser={currentUser}
             updateUser={updateUser}
           />
-        </div>
-        <div className="flex-large">
-          <h2>View users</h2>
+        </Grid>
+        <Grid item xs={12}>
+          <Typography gutterBottom variant="h6">
+            User Table
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
           <UserTable users={users} deleteUser={deleteUser} editRow={editRow} />
-        </div>
+        </Grid>
       </Grid>
-    </Container>
+    </div>
   );
 };
 
